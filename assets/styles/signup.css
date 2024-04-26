@@ -1,0 +1,28 @@
+body {
+  background-image: url("/images/signup.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+/* footer {
+  background-color: transparent;
+} */
+.content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+label {
+  color: black;
+}
+input {
+  background-color: transparent;
+  border: 0.5px solid black;
+}
+#signup {
+  width: 40%;
+  background-color: rgba(128, 128, 128, 0.1);
+  height: 30px;
+}
+h1 {
+  justify-content: center;
+}

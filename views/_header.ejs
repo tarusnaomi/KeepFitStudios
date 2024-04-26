@@ -1,0 +1,44 @@
+<header>
+  <img src="/images/lightbglogo.png" alt="brandlogo" id="logo" />
+  <% if (locals.user) {%>
+  <nav id="one">
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/workouts">Workouts</a>
+    <a href="exercises">Exercises</a>
+    <a href="/profile">Profile</a>
+    <a href="/progress">Progress</a>
+  </nav>
+  <nav id="two">
+    <a href="/profile"><%= user.username%></a>
+    <a href="/logout">Logout</a>
+  </nav>
+  <%} else{%>
+  <nav id="one">
+    <a href="/">Home</a>
+    <a href="/about">About Us</a>
+    <a href="/workouts">Workouts</a>
+    <a href="exercises">Exercises</a>
+    <a href="/profile">Profile</a>
+    <a href="/progress">Progress</a>
+  </nav>
+  <nav id="two">
+    <a href="/signup">Signup</a>
+    <a href="/login">Login</a>
+  </nav>
+  <%}%>
+  <button id="button">
+    <ion-icon name="menu-outline"></ion-icon>
+  </button>
+  <script>
+    const mobileMenu = document.getElementById("button");
+    const navEl = document.getElementById("one");
+
+    if (mobileMenu) {
+      mobileMenu.addEventListener("click", () => {
+        navEl.classList.toggle("open");
+      });
+    }
+</script>
+  </style>
+</header>

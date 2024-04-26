@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/login.css" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+  </head>
+  <body> 
+    <%- include ("_header.ejs") %>
+    <main>
+        <% if(locals.message){ %>
+        <p style="color: orangered"><%=locals.message%></p>
+        <%}%> <% if(locals.error){ %>
+        <form action="/login" method="post">
+          <div>
+            <label for="email">Email</label>
+            <input
+              type="email"
+              name="email"
+              id="email"
+              value="<%=locals.prevInput.email%>"
+            />
+          </div>
+
+          <div>
+            <label for="pass">Password</label>
+            <input
+              type="password"
+              name="pass"
+              id="pass"
+              value="<%=locals.prevInput.pass%>"
+            />
+          </div>
+
+          <div>
+            <input type="submit" value="login" />
+          </div>
+        </form>
+        <%}else{%>
+        <form action="/login" method="post">
+          <div>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" />
+          </div>
+
+          <div>
+            <label for="pass">Password</label>
+            <input type="password" name="pass" id="pass" />
+          </div>
+
+          <div>
+            <input type="submit" value="Login" />
+          </div>
+        </form>
+        <%}%>
+      </section>
+  </main>
+  <%- include ("_footer.ejs") %>
+  </body>
+</html>

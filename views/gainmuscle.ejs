@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>looseweight</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/index.css" />
+</head>
+<body>
+    <%- include ("_header.ejs") %>
+    <main>
+        <% locals.exercises.filter(exercise => exercise.category === "Strength Training").forEach(exercise => { %>
+            <h2><%=  exercise.name %></h2>
+            <p><%=  exercise.description %></p>
+            <p><%=  exercise.muscle_group %></p>
+        <% }) %>
+    </main>
+    <%- include ("_footer.ejs") %> 
+</body>
+
+</html>

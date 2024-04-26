@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home Page</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/home.css" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <%- include ("_header.ejs") %> 
+    
+    <% if (locals.user) {%>
+    <main>
+      <p>Welcome <%= user.username%></p>
+      <h1> Stay Fit <br> <span>Stay Healty</span> </h1>
+      <section>
+        <p>We are here to keep you fit at home, no gym eqipment needed!</p>
+        <div id="offers">
+          <div class="offer" id="offer-1">
+            <a href="/training">
+            <img src="images/home-one.png" alt="muscle" class="homepic" />
+            Strengh training
+          </a>
+          </div>
+          <div class="offer" id="offer-2">
+            <a href="/lweight">
+              <img src="images/looseweight.png" alt="looseweight"class="homepic" />
+              Loose Weight
+            </a>
+          </div>
+          <div class="offer" id="offer-3">
+            <a href="/gainmuscle">
+            <img src="images/muscles.png" alt="muscle" class="homepic" />
+            Gain body muscle
+          </a>
+          </div>
+        </div>
+      </section>
+    </main>
+    <% } else {%>
+      <main>
+        <h1> Stay Fit <br> <span>Stay Healty</span> </h1>
+        <section>
+          <p>We are here to keep you fit at home, no gym eqipment needed!</p>
+          <div id="offers">
+            <div class="offer" id="offer-1">
+              <a href="/training">
+              <img src="images/home-one.png" alt="muscle" class="homepic" />
+              Strengh training
+            </a>
+            </div>
+            <div class="offer" id="offer-2">
+              <a href="/lweight">
+                <img src="images/looseweight.png" alt="looseweight"class="homepic" />
+                Loose Weight
+              </a>
+            </div>
+            <div class="offer" id="offer-3">
+              <a href="/gainmuscle">
+              <img src="images/muscles.png" alt="muscle" class="homepic" />
+              Gain body muscle
+            </a>
+            </div>
+          </div>
+        </section>
+        <a href="/signup" style="text-decoration: none;color: white;">Get started now</a>
+    </main>
+    <%}%> 
+    
+    <%- include ("_footer.ejs") %>
+  </body>
+</html>

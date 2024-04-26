@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/signup.css" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+      <%- include ("_header.ejs") %>
+    <main>
+        <div class="content">
+          <form action="/update-profile" method="post">
+            <div>
+              <label for="first_name">Last Name</label>
+              <input
+                type="text"
+                name="first_name"
+                id="first_name"
+                value="<%=locals.user.first_name%>"
+              />
+            </div>
+            <div>
+              <label for="last_name">First Name</label>
+              <input
+                type="text"
+                name="last_name"
+                id="last_name"
+                value="<%=locals.user.last_name%>"
+              />
+            </div>
+            <div>
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value="<%=locals.user.username%>"
+              />
+            </div>
+            <div>
+              <label for="birthdate">Birthdate </label>
+              <input
+                type="date"
+                name="birthdate"
+                id="birthdate"
+                value="<%=locals.user.birthdate%>"
+              />
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                value="<%=locals.user.phone%>"
+              />
+            </div>
+            <div>
+              <label for="height">Height</label>
+              <input
+                type="number"
+                name="height"
+                id="height"
+                value="<%=locals.user.height%>"
+              />
+            </div>
+            <div>
+              <label for="weight">Weight</label>
+              <input
+                type="number"
+                name="weight"
+                id="weight"
+                value="<%=locals.user.weight%>"
+              />
+            </div>
+            <div>
+              <label for="pass">Password</label>
+              <input
+                type="password"
+                name="pass"
+                id="pass"
+                value="<%=locals.user.pass%>"
+              />
+            </div>
+            <div>
+              <label for="confirmPass">Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPass"
+                id="confirmPass"
+                value="<%=locals.user.confirmPass%>"
+              />
+            </div>
+            <div>
+              <input type="submit" id="update" value="Update" />
+            </div>
+            <p style="color: orangered"><%=locals.errMessage%></p>
+          </form>
+        </div>  
+    </main>
+    <%- include ("_footer.ejs") %>
+    <!-- <script>
+      alert("Fill this form accurately ");
+    </script> -->
+  </body>
+</html>

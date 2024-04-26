@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/signup.css" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <%- include ("_header.ejs") %>
+    <main>
+      <section class="main-home">
+        <% if(locals.error){ %>
+        <div class="content">
+          <form action="/signup" method="post">
+            <div>
+              <label for="first_name">Last Name</label>
+              <input
+                type="text"
+                name="first_name"
+                id="first_name"
+                value="<%=locals.prevInput.first_name%>"
+              />
+            </div>
+            <div>
+              <label for="last_name">First Name</label>
+              <input
+                type="text"
+                name="last_name"
+                id="last_name"
+                value="<%=locals.prevInput.last_name%>"
+              />
+            </div>
+            <div>
+              <label for="username">Username</label>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                value="<%=locals.prevInput.username%>"
+              />
+            </div>
+            <div>
+              <label for="birthdate">Birthdate </label>
+              <input
+                type="date"
+                name="birthdate"
+                id="birthdate"
+                value="<%=locals.prevInput.birthdate%>"
+              />
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                value="<%=locals.prevInput.phone%>"
+              />
+            </div>
+            <div>
+              <label for="height">Height</label>
+              <input
+                type="number"
+                name="height"
+                id="height"
+                value="<%=locals.prevInput.height%>"
+              />
+            </div>
+            <div>
+              <label for="weight">Weight</label>
+              <input
+                type="number"
+                name="weight"
+                id="weight"
+                value="<%=locals.prevInput.weight%>"
+              />
+            </div>
+            <div>
+              <label for="pass">Password</label>
+              <input
+                type="password"
+                name="pass"
+                id="pass"
+                value="<%=locals.prevInput.pass%>"
+              />
+            </div>
+            <div>
+              <label for="confirmPass">Confirm Password</label>
+              <input
+                type="password"
+                name="confirmPass"
+                id="confirmPass"
+                value="<%=locals.prevInput.confirmPass%>"
+              />
+            </div>
+            <div>
+              <input type="submit" id="signup" value="Sign Up" />
+            </div>
+            <p style="color: orangered"><%=locals.errMessage%></p>
+          </form>
+        </div>
+        <%}else{%>
+        <div class="content">
+          <form action="/signup" method="post">
+            <div>
+              <label for="first_name">First Name</label>
+              <input type="text" name="first_name" id="first_name" />
+            </div>
+            <div>
+              <label for="last_name">Last Name</label>
+              <input type="text" name="last_name" id="last_name" />
+            </div>
+            <div>
+              <label for="username">User Name</label>
+              <input type="text" name="username" id="username" />
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input type="email" name="email" id="email" />
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input type="tel" name="phone" id="phone" value="+254" />
+            </div>
+            <div>
+              <label for="Birthdate">Birthdate</label>
+              <input type="date" name="birthdate" id="birthdate" />
+            </div>
+            <div>
+              <label for="height">Height</label>
+              <input type="number" name="height" id="height" placeholder="cm" />
+            </div>
+            <div>
+              <label for="weight">Weight</label>
+              <input type="number" name="weight" id="weight" placeholder="kg" />
+            </div>
+            <div>
+              <label for="pass">Password</label>
+              <input type="password" name="pass" id="pass" />
+            </div>
+            <div>
+              <label for="confirmPass">Confirm Password</label>
+              <input type="password" name="confirmPass" id="confirmPass" />
+            </div>
+            <div>
+              <input type="submit" id="signup" value="Sign Up" />
+            </div>
+          </form>
+        </div>
+        <%}%>
+      </section>
+    </main>
+    <%- include ("_footer.ejs") %>
+  </body>
+</html>

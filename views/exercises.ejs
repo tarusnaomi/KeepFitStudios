@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <%- include ("_header.ejs") %>
+    <main>
+        <h1>Excercises</h1>
+       
+          <% exercises.forEach((exercise) => { %>
+            <div class="exercise">
+          <h2><%= exercise.name %></h2>
+          <p><%= exercise.description %></p>
+          <p><%= exercise.muscle_group %></p>
+          <p><%= exercise.category %></p>
+        </div>
+          <% }); %>
+    </main>
+    <%- include ("_footer.ejs") %>
+  </body>
+</html>

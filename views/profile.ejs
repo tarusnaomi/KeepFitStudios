@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+  </head>
+  <body>
+    <%- include ("_header.ejs") %>
+    <main>
+      <section class="main-home">
+        <section class="one">
+          <h1>Your Profile</h1>
+
+          <h3><%= locals.user.username %></h3>
+          <h3><%= locals.user.email %></h3>
+          <h3><%= locals.user.phone %></h3>
+
+          <p id="birthdate" hidden><%= locals.user.birthdate.slice(0,4) %></p>
+          <p id="age"></p>
+          <p style="font-size: 12px;color: darkslateblue;"><a href="/update-profile">Update</a> your profile to get current BMI</p>
+          <button id="bmi">calculate your  BMI</button>
+
+          <p id="height" hidden><%= locals.user.height %></p>
+
+          <p id="weight" hidden><%= locals.user.weight %></p>
+          <p id="bmi-result"></p>
+        </section>
+        <section>
+          <section>
+            <h3>Choose your goals</h3>
+            <form action="/profile" method="post">
+              <label for="goals">
+                <select name="goals" id="goals">
+                  <option value="loose weight">loose weight</option>
+                  <option value="gain body muscle">gain body muscle</option>
+                  <option value="strength training">strength training</option>
+                  <option value="gain body muscle">gain body muscle</option>
+                </select>
+              </label>
+              <button type="submit">Save Goals</button>
+            </form>
+          </section>
+          <h2>Progress</h2>
+          <div class="active">
+            <p>You haven't started any workouts or exercises yet!</p>
+          </div>
+          <a href="/progress">progress</a>
+        </section>
+        <a href="/update-profile">Update Profile</a>
+      </section>
+    </main>
+    <%- include ("_footer.ejs") %>
+    <script>
+      function calculateAge() {
+        const birthdate = document.getElementById("birthdate").textContent;
+        const birthYear = parseInt(birthdate, 10);
+        const today = new Date().getFullYear();
+        const age = today - birthYear;
+        document.getElementById("age").textContent = `Age ${age} `;
+      }
+      calculateAge();
+
+      function calculateBmi() {
+        const height = document.getElementById("height").textContent;
+        const height1 = parseInt(height, 10);
+        const weight = document.getElementById("weight").textContent;
+        const weight1 = parseInt(weight, 10);
+        const bmi = weight1 / (height1 / 100) ** 2;
+        let category = "";
+        if (bmi < 18.5) {
+          category =
+            "Underweight (increased risk of health problems like nutritional deficiencies)";
+        } else if (bmi >= 18.5 && bmi <= 24.9) {
+          category = "Normal weight";
+        } else if (bmi >= 25 && bmi <= 29.9) {
+          category =
+            "Overweight (increased risk of health problems like heart disease, stroke, type 2 diabetes, and some cancers)";
+        } else if (bmi >= 30) {
+          category = "Obese (serious health risks)";
+        }
+        document.getElementById(
+          "bmi-result"
+        ).textContent = `Your BMI is ${bmi.toFixed(2)} and you are ${category}`;
+      }
+      // calculateBmi();
+      const bmiButton = document.getElementById("bmi");
+      const bmiResult = document.getElementById("bmi-result");
+      bmiButton.addEventListener("click", calculateBmi);
+    </script>
+  </body>
+</html>

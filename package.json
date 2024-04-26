@@ -1,0 +1,21 @@
+{
+  "name": "keepfitstudios",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sever.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js`"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "^1.4.6",
+    "ejs": "^3.1.9",
+    "express": "^4.19.1",
+    "express-session": "^1.18.0",
+    "mysql": "^2.18.1"
+  }
+}

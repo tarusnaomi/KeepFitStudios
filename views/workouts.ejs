@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/workouts.css">
+  </head>
+  <body>
+    <main>
+      <%- include ("_header.ejs") %>
+      <h1>Workouts</h1>
+          <% workouts.forEach((workout) => { %>
+            <div class="workouts">
+          <h2><%= workout.name %></h2>
+          <p><%= workout.description %></p>
+          <a href="#">Get Started</a>
+        </div>
+          <% }); %>
+    </main>
+    <%- include ("_footer.ejs") %>
+  </body>
+</html>
